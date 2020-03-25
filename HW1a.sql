@@ -24,8 +24,9 @@ CREATE TABLE question (qid SERIAL PRIMARY KEY,
 
 CREATE TABLE answer (aid SERIAL PRIMARY KEY, 
                      givenBy VARCHAR(255) REFERENCES users, 
-                     answers INTEGER REFERENCES question,
+                     answersQuestion INTEGER REFERENCES question,
                      text VARCHAR(1023) NOT NULL);
+                     source VARCHAR(1000));
 CREATE TABLE stepByStepA (aid INTEGER REFERENCES answer);
 CREATE TABLE externalA (aid INTEGER REFERENCES answer, 
                         comment VARCHAR(255), 
